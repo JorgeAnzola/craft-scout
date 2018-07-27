@@ -82,7 +82,7 @@ class AlgoliaIndex extends Model
         // Make sure the objectID is set for Algolia
 		$data['objectID'] = $this->getSiteElementId($element);
 		// Include the site language in the record.
-		$data['siteLanguage'] = $element->site->language;
+		$data['siteLanguage'] = strtolower(str_replace('-', '_', $element->site->language));
 
         return $data;
     }
